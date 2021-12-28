@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jokenpo/presenter/ui/pages/game_page.dart';
 
@@ -11,6 +12,9 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeData>(
       builder: (_, theme) {
+        SystemChrome.setPreferredOrientations([
+          DeviceOrientation.portraitUp,
+        ]);
         return MaterialApp(
           theme: theme,
           debugShowCheckedModeBanner: false,
